@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="tl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isandaang Mensahe Para Sa YGIG</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 50px;
+        background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                          radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                          radial-gradient(1px 1px at 90px 40px, #eee, transparent),
+                          radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+                          radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+        background-repeat: repeat;
+        background-size: 200px 100px;
+        animation: twinkle 4s ease-in-out infinite alternate;
+        z-index: -1;
+      }
+
+      @keyframes twinkle {
+        0% { opacity: 0.5; }
+        100% { opacity: 1; }
+      }
+
+      .h {
+        text-align: center;
+        color: #FFD5D5;
+        font-style: italic;
+        font-size: 30px;
+        font-family: 'Papyrus', fantasy;
+        text-shadow: 0 0 10px #FFD5D5, 0 0 20px #FFD5D5, 0 0 30px #FFD5D5;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from { text-shadow: 0 0 10px #FFD5D5, 0 0 20px #FFD5D5, 0 0 30px #FFD5D5; }
+        to { text-shadow: 0 0 20px #FFD5D5, 0 0 30px #FFD5D5, 0 0 40px #FFD5D5; }
+      }
+
+      .p1 {
+        text-align: left;
+        color: #FFD5D5;
+        font-size: 12px;
+        margin-left: 10px;
+        margin-top: 90px;
+        line-height: 200%;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+
+      .p2 {
+        text-align: left;
+        flex-wrap: wrap;
+        justify-content: end;
+        color: #FFD5D5;
+        font-size: 12px;
+        margin-left: 20px;
+        margin-top: 90px;
+        line-height: 200%;
+        z-index: 99;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+        max-width: 80vw;
+        gap: 50px;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+
+      .card {
+        perspective: 1200px;
+      }
+
+      .card-inner {
+        position: relative;
+        width: 300px;
+        height: 351px;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+        box-shadow: 0 0 10px #3A6F43;
+        border-radius: 10px;
+      }
+
+      .card.flipped .card-inner {
+  transform: rotateY(180deg);
+  }
+
+   .card:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px #3A6F43;
+      }
+
+      .card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-back {
+        background-color: #000000;
+        color: #FFD5D5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        transform: rotateY(180deg);
+        text-align: center;
+      }
+
+      .card-back a {
+  text-decoration: none;
+  color: inherit;
+}
+
+      @media (max-width: 600px) {
+        .card-inner {
+          height: 200px;
+        }
+      }
+
+      #tiktok {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: transparent;
+      }
+
+      #tiktok:hover, #instagram:hover {
+        transform: scale(1.1);
+      }
+
+      #instagram {
+        position: fixed;
+        bottom: 20px;
+        left: 150px;
+        background-color: transparent;
+      }
+
+      p {
+        font-family: 'Times New Roman', Times, serif;
+        margin: 30px;
+        line-height: 150%;
+        font-size: 15px;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #FFD5D5;
+        border-radius: 50%;
+        animation: float 6s linear infinite;
+        opacity: 0.7;
+      }
+      @keyframes float {
+        0% { transform: translateY(100vh) rotate(0deg); }
+        100% { transform: translateY(-100vh) rotate(360deg); }
+      }
+      .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+      .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+      .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+      .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+      .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+      .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+      .particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+      .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+      .particle:nth-child(9) { left: 90%; animation-delay: 8s; }
+      .particle:nth-child(10) { left: 100%; animation-delay: 9s; }
+
+      .id_picture {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #3A6F43;
+        position: fixed;
+        top: 20px;
+        background-image: url(user\ icon.png);
+        background-size: contain;
+      }
+      
+      nav {
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 99;
+    font-family: Lucida handwriting, cursive;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 25px;
+    font-size: 25px;
+}
+
+nav a:hover {
+    color: #f0a500;
+}
+    </style>
+  </head>
+  <body>
+     <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    
+    <nav>
+        <a href="#learn">Learn</a>
+        <a href="#listen">Listen</a>
+        <a href="#love">Love</a>
+    </nav>
+
+    <div class="h">
+<section id="learn">
+<h1>---Learn. Listen. Love.---</h1>
+<div class="gallery">
+          <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="V2 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <div class="id_picture"></div>
+            <a id="tiktok" href="https://www.tiktok.com/@c.est_la_vien?is_from_webapp=1&sender_device=pc">
+              <img src="tiktok.jpg" alt="TikTok Logo" width="40" height="40">
+              @c.est_la_vien
+            </a>
+            <a id="instagram" href="https://www.instagram.com/c.est_la_vien_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+              <img src="instagram.jpg" alt="Instagram Logo" width="40" height="40">
+              @c.est_la_vien
+            </a>
+            <div class="p1">
+              Name: 
+              <br>
+              Age:
+              <br>
+              Birthday: 
+              </div>
+              <div class="p2">
+                <b>
+              Vien Corpuz
+              <br>
+              24
+              <br>
+              June 4, 2001
+              </b>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="H2 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <div class="id_picture"></div>
+          <a id="tiktok" href="https://www.tiktok.com/@heyyyzelyn?is_from_webapp=1&sender_device=pc">
+              <img src="tiktok.jpg" alt="TikTok Logo" width="40" height="40">
+              @heyyyzelyn
+            </a>
+            <a id="instagram" href="https://www.instagram.com/heyheyheyzelyn?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+              <img src="instagram.jpg" alt="Instagram Logo" width="40" height="40">
+              @heyheyheyzelyn
+            </a>
+            <div class="p1">
+              Name: 
+              <br>
+              Age:
+              <br>
+              Birthday: 
+              </div>
+              <div class="p2">
+                <b>
+              Hazelyn Dequit
+              <br>
+              25
+              <br>
+              June 28, 2000
+              </b>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      
+    <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="J2 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <div class="id_picture"></div>
+ <a id="tiktok" href="https://www.tiktok.com/@j3.33l?is_from_webapp=1&sender_device=pc">
+              <img src="tiktok.jpg" alt="TikTok Logo" width="40" height="40">
+              @j3.33l
+            </a>
+            <a id="instagram" href="https://www.instagram.com/j3.33l?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+              <img src="instagram.jpg" alt="Instagram Logo" width="40" height="40">
+              @j3.33l
+            </a>
+            <div class="p1">
+              Name: 
+              <br>
+              Age:
+              <br>
+              Birthday: 
+              </div>
+              <div class="p2">
+                <b>
+              Jewel Anacay            
+              <br>
+              24
+              <br>
+              July 28, 2001
+              </b>
+            </div>
+          </div>
+        </div>
+        </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="M2 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <div class="id_picture"></div>
+  <a id="tiktok" href="https://www.tiktok.com/@im_maeg?is_from_webapp=1&sender_device=pc">
+              <img src="tiktok.jpg" alt="TikTok Logo" width="40" height="40">
+              @im_maeg
+            </a>
+            <a id="instagram" href="https://www.instagram.com/im_maeg/?utm_source=ig_web_button_share_sheet">
+              <img src="instagram.jpg" alt="Instagram Logo" width="40" height="40">
+              @im_maeg
+            </a>
+            <div class="p1">
+              Name: 
+              <br>
+              Age:
+              <br>
+              Birthday: 
+              </div>
+              <div class="p2">
+                <b>
+              Maegan Medina              
+              <br>
+              22
+              <br>
+              July 5, 2003
+              </b>
+            </div>
+          </div>
+        </div>
+        </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="V1 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+              <a href="https://youtu.be/tKnfovw0kU8?si=CUrqHtRz18FOWuqE">
+                <i>
+                  When you came into my life,
+                  every day you got me dreaming
+                  <br>
+                  Wanna take this to another level only if I could
+                  </i>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="H1 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+             <p>
+              <a href="https://youtu.be/mX1-GEWerEg?si=FfPwzbnQ7JnPXqfo">
+                <i>
+                  Forget 'bout all the unsaid
+                  <br>
+                  Out to the world,
+                  <br>
+                  hear me scream
+                </i>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+          <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="J1 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+          <a href="https://youtu.be/7m48xvFLtuY?si=kN-_PiGzNe1MIumD">
+          <i>
+              Light it up, light it up, yeah
+              <br>
+              you light it up, light it up, yeah
+              </i>
+          </a>
+        </p>
+          </div>
+        </div>
+        </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="M1 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+              <a href="https://youtu.be/SNDLg7OgfNU?si=4FtMA00VKKERBtjW">
+                <i>
+                  Wished on every shooting star,
+                  <br>
+                  I whispered to the moon,
+                  <br>
+                  But still, I don't know why
+                </i>
+              </a>
+            </p>
+          </div>
+        </div>
+        </div>
+
+ <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y4 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+              <a href="https://youtu.be/x0gATZ358Nk?si=sS605_arnE36zZ7F">
+                <i>
+                  Di nga sumusuko
+                  <br>
+                  kahit pa ito ang dulo na
+                  <br>
+                  Oh, eto humabol,
+                  <br>
+                  Siguraduhin ipanalo
+                </i>
+              </a>
+              </p>
+          </div>
+        </div>
+        </div>
+
+          <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y5 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+              <a href="https://youtu.be/2LPdwveIyp8?si=QglGQxl6YKTl5-Bl">
+                <i>
+                  Girl, listen up<br>
+                  It's all a trap<br>
+                  Don't fall for such a boy
+                </i>
+              </a>
+              </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y7 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+              <a href="https://youtu.be/9I72_sddlds?si=ymB9Oyu4MYqrDV4N">
+                <i>
+                  Put your hands up to the right<br>
+                  and move your hips to the left<br>
+                  while you step and slide
+                </i>
+              </a>
+              </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y10 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+              <a href="https://youtu.be/rHxZUpfSNI4?si=PbsB63ZA3hWL8xBm">
+                <i>
+                  Can't you see I lyk that?<br>
+                  When you smile, Baby, I lyk that
+                </i>
+              </a>
+              </p>
+          </div>
+        </div>
+      </div>
+</div>
+</section>
+
+<section id="listen">
+<h1>---Learn. Listen. Love.---</h1>
+<div class="gallery">
+          <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="V3 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1udOOSbJnytCdgvbgYOF5s?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="H3 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2UD0Qm8GfCd9lOewegxLT3?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+      
+    <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="J3 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0hC02vQEEYV2T3MHkbcNSY?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+    </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="M3 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+              <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/08oySYsTpbRB4SCUgph044?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        </div>
+        </div>
+
+          <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="V4 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/71WIWs1cxfxpfB34G2xhdM?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="H4 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3l2v1wNZO9SDhvpZUH7Uam?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+      </div>
+
+    <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="J4 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4g0fdRRAARUqmPqGkQ5ENB?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+        </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="M4 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4FmeVH5lIipcrOiEdv1Hd2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          </div>
+        </div>
+        </div>
+
+          <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y1 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4vAYg1rLGyJiXUiU5LMdg3?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y3 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1hako3PGCUlJ1KsknxKric?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          </div>
+        </div>
+        </div>
+
+           <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y2 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/06e64wh6xM9EmFDkzu7S3n?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y6 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back"> 
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/79B6nlrt5xJMvzcJXWSPip?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          </div>
+        </div>
+      </div>
+      </div>
+</section>
+
+<section id="love">
+<h1>---Learn. Listen. Love.---</h1>
+    <div class="gallery">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y9 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+              <p>
+              <i>Wherever...
+              </i>
+            <br>
+            <b>You go, I go</b></p>
+          </div>
+          </div>
+        </div>
+
+    <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="Y8 image.jpg" alt="Card Image">
+          </div>
+          <div class="card-back">
+            <p>
+              <a href="second.html">
+              100 <br>
+              <i>Mensahe Para Sa 
+                <br>
+                <b>YGIG</b></i>
+                </a>
+              </p>
+          </div>
+        </div>
+        </div>
+</div>
+</section>
+  </body>
+</html>

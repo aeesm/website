@@ -1,0 +1,259 @@
+      :root {
+      --primary-bg: #000000;
+      --secondary-bg: #0d0e1a;
+      --accent: #00ffff;
+      --highlight: #FFD700;
+      --text-light: #e0ffe0;
+      --text-dark: #333333;
+      --book-bg: rgba(3, 63, 37, 0.95); 
+      --button-bg: rgba(0, 255, 255, 0.1); 
+    }
+
+    body {
+      padding: 20px;
+      background-image: url(bg.avif);
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+      cursor: url('8-bit-pixel-butterfly-vector-600nw-2133132539-removebg-preview.png'), auto;
+      color: var(--text-light);
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .bookmark {
+      width: 100%;
+      max-width: 80vw;
+      min-width: 50vw;
+      height: fit-content;
+      min-height: 300px;
+      cursor: url('8-bit-pixel-butterfly-vector-600nw-2133132539-removebg-preview.png'), auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--book-bg);
+      box-shadow: 0 0 20px rgba(0, 255, 100, 0.3);
+      position: relative;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1%;
+      background-image: url(bmbg.jpg);
+      background-size: cover;
+      border: 10px solid white;
+      border-radius: 10px;
+    }
+
+    .container {
+      display: flex;
+      background-color: transparent;
+      width: 100%;
+      text-align: center;
+    }
+
+    p {
+      text-align: justify;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-light);
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .button-next,
+    .button-previous {
+      position: absolute;
+      bottom: 20px;
+      background: var(--button-bg);
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--accent);
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      padding: 10px 20px;
+      min-width: 100px;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+
+    .button-next {
+      right: 20px;
+    }
+
+    .button-previous {
+      left: 20px;
+    }
+
+    .button-next::before,
+    .button-previous::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      z-index: -1;
+      transition: width 0.3s ease;
+    }
+
+    .button-next:hover,
+    .button-previous:hover {
+      color: var(--primary-bg);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+
+    .button-next:hover::before {
+      width: 100%;
+    }
+
+    .button-previous:hover::before {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+        background-attachment: scroll;
+      }
+      .bookmark {
+        max-width: 90vw;
+        padding: 20px;
+        min-height: 400px;
+      }
+      .container {
+        padding: 10px;
+      }
+      p {
+        font-size: 16px;
+      }
+      .button-next,
+      .button-previous {
+        position: static;
+        margin: 10px;
+        width: 100%;
+        max-width: 150px;
+      }
+      .button-next {
+        right: auto;
+      }
+      .button-previous {
+        left: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .bookmark {
+        padding: 15px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .back-button{
+  max-width: 10vw;
+  z-index: 99;
+  position: fixed;
+  top: 15px;
+  background-color: white;
+  color: #0f0f23;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 15px;
+  left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .back-button:hover {
+  background-color: #0f0f23;
+  color: white;
+ }
+
+ a {
+  text-decoration: none;
+ }
+
+  .message {
+    background: transparent;
+    padding: 2%;
+    color: #000000;
+    font-weight: 700;
+    text-align: justify;
+    position: relative;
+    z-index: 1;
+    overflow-wrap: break-word;
+    font-family: lucida handwriting, cursive;
+  }
+
+  #messageInput {
+    background: transparent;
+    color: #000000;
+    border: 1px solid #00000066;
+    border-radius: 4px;
+    padding: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    width: 50vw;
+    resize: vertical;
+  }
+
+  #submitBtn, #editBtn {
+    background: #ffffff;
+    color: rgb(2, 54, 2);
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  #submitBtn:hover, #editBtn:hover {
+    background: #00aaff;
+  }
+
+  #displayedMessage {
+    display: none;
+  }
+
+  #editBtn {
+    display: none;
+  }
+
+  #nameInput {
+    background: transparent;
+    color: #000000;
+    border: 1px solid #00000066;
+    border-radius: 4px;
+    padding: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    width: 80%;
+  }
+
+  #fromDisplay {
+    color: #000000;
+    font-weight: 500;
+    display: none;
+  }

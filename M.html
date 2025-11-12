@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YGIG's Charm</title>
+  <style>
+    :root {
+      --primary-color: #041e00;
+      --secondary-color: #013c06;
+      --accent-color: rgba(0, 255, 100, 0.5);
+      --text-color: rgb(9, 255, 0);
+      --book-color: #8B4513;
+      --book-border: #654321;
+      --particle-color: #FFD700;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      font-size: 17px;
+      overflow-y: auto;
+      cursor: url('8-bit-pixel-butterfly-vector-600nw-2133132539-removebg-preview.png'), auto;
+      align-items: center;
+    }
+    
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;  
+      min-width: 100%; 
+      min-height: 100%;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 70px 0;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 30px 50px;
+      box-shadow: 0 0 25px var(--accent-color);
+      text-align: center;
+      text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+      transition: all 0.4s ease;
+      max-width: 100vw;
+    }
+
+    .glass-box h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .shelf {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30px, 40px));
+      gap: 20px;
+      justify-content: center;
+      z-index: 3;
+      width: 90vw;
+      max-width: 1550px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .book {
+      position: relative;
+      width: 40px;
+      height: 120px;
+      background: linear-gradient(to right, var(--book-color) 0%, #A0522D 50%, var(--book-color) 100%);
+      border: 1px solid var(--book-border);
+      border-radius: 2px 5px 5px 2px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #FFF;
+      text-align: center;
+      cursor: url('8-bit-pixel-butterfly-vector-600nw-2133132539-removebg-preview.png'), pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .book::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 30px;
+      height: 45px;
+      background: linear-gradient(to bottom, #F5DEB3 0%, #D2B48C 100%);
+      border-radius: 3px;
+      z-index: 5;
+    }
+
+    .book:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .book:hover::after {
+      content: '✨';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 14px;
+      color: var(--particle-color);
+      animation: sparkle 1s ease-in-out infinite;
+      z-index: 6;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--particle-color);
+      border-radius: 50%;
+      animation: float 10s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .glass-box {
+        padding: 20px 30px;
+      }
+      .glass-box h1 {
+        font-size: 1.5rem;
+      }
+      .shelf {
+        grid-template-columns: repeat(auto-fit, minmax(35px, 50px));
+        gap: 10px;
+      }
+      .book {
+        width: 50px;
+        height: 140px;
+        font-size: 10px;
+      }
+      .book::before {
+        width: 40px;
+        height: 55px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        padding: 40px 10px;
+      }
+      .shelf {
+        width: 95vw;
+        grid-template-columns: repeat(auto-fit, minmax(30px, 45px));
+      }
+      .book {
+        width: 45px;
+        height: 120px;
+      }
+    }
+
+    
+ .back-button{
+  max-width: 10vw;
+  z-index: 99;
+  position: fixed;
+  top: 15px;
+  background-color: white;
+  color: #0f0f23;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 15px;
+  left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .back-button:hover {
+  background-color: #0f0f23;
+  color: white;
+ }
+
+ a {
+  text-decoration: none;
+ }
+  </style>
+</head>
+<body>
+
+  
+<video autoplay muted loop id="myVideo">
+  <source src="vid(1).mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+  <a href="second.html" class="back-button">Back</a>
+
+  <div class="content">
+    <div class="glass-box">
+      <h1>Isandaang Mensahe Para Kay Maeg</h1>
+    </div>
+  </div>
+
+  <div class="shelf"></div>
+
+  <div class="particles"></div>
+
+  <script>
+    const particlesContainer = document.querySelector('.particles');
+    const numParticles = 20;
+
+    for (let i = 0; i < numParticles; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDelay = `${Math.random() * 10}s`;
+      particle.style.animationDuration = `${8 + Math.random() * 4}s`;
+      particlesContainer.appendChild(particle);
+    }
+
+    const shelf = document.querySelector('.shelf');
+    const totalBooks = 100;
+
+    for (let i = 1; i <= totalBooks; i++) {
+      const link = document.createElement('a');
+      link.href = `M messages/M (${i}).html`;
+      link.title = `Message ${i}`;
+
+      const book = document.createElement('div');
+      book.className = 'book';
+      book.innerText = i;
+
+      link.appendChild(book);
+      shelf.appendChild(link);
+    }
+
+  </script>
+</body>
+</html>
